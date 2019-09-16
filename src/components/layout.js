@@ -2,6 +2,16 @@ import React from "react"
 import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
+import ThemeToggler from '../components/ThemeToggler';
+import '../../static/global.css'
+import '../../static/react-toggle.css'
+import styled from 'styled-components';
+const StyledHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.625rem;;
+`;
 
 class Layout extends React.Component {
   render() {
@@ -13,9 +23,9 @@ class Layout extends React.Component {
       header = (
         <h1
           style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
+            // ...scale(1.5),
             marginTop: 0,
+            marginBottom: 0,
           }}
         >
           <Link
@@ -60,7 +70,10 @@ class Layout extends React.Component {
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        <header>{header}</header>
+        <StyledHeader>
+          {header}
+          <ThemeToggler />
+        </StyledHeader>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
